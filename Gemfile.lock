@@ -1,12 +1,14 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    dotenv (2.7.6)
     simple-random (1.0.3)
 
 PLATFORMS
   x86_64-darwin-21
 
 DEPENDENCIES
+  dotenv
   simple-random (~> 1.0)
 
 BUNDLED WITH

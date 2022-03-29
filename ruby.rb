@@ -1,10 +1,7 @@
 require 'discordrb'
-require './messagelogger.rb'
+require 'dotenv/load'
 
-@cat = 'https://source.unsplash.com/random/featured/?cat'
-@dog =
-@kyliejenner =
-@bot = Discordrb::Bot.new token: 'OTQzNzc1NDg0NzQ2MDM1MjUw.Yg39ag.JQNn3OlBfFKcTM7YxBJU21xsm2Y'
+
 
 
 def botinit()
@@ -13,10 +10,8 @@ puts "Welcome to my Ruby Discord Bot."
     puts "1. View message log"
     puts "2. Send an image"
     puts "3. Play rock, paper scissors"
-    puts "4. Guessing Game"
+    puts "4. Flags"
     puts "5. Kahoot Motivation"
-    puts "6. Play a text story game"
-    puts "7. What should I watch on YouTube today?"
     selection = gets.chomp
     if selection == "1"
         message()
@@ -59,40 +54,27 @@ end
 
 # @bot.message do |event|
 #     begin
-#     loggies = event.content, event.author, event.timestamp, event.channel.name
-#         File.open("loggies.txt", "a") do |f|
-#         f << "#{loggies}\n"
+#     
 #     end
 #     rescue
 #         puts "rescued"
 #     end
 # end
 
+
+
+end
+
+@bot.message(with_text: '!winners') do |event|
+    
+    winners = event.author.username
+    event.respond "#{event.author.username} has won #{log.count(winners)} times!"
+end
+
 @questions = ["What is the capital city of Australia?", "What is 2 + 2?", "What flag is this?"]
 @answers = ["ACT", "4", "Estonia"]
 
-def quizgame
-    game = rand(0..2)
-    puts @questions[game]
-    puts "test"
-        @bot.message(with_text: '!startquiz') do |event|
-        begin
-        event.respond @questions[game]
-            event.user.await(:guess) do |guess_event|
-            guess = guess_event.message.content.to_s
-            if guess == @answers[game]
-            guess_event.respond 'That is the correct answer!'
-            else
-            puts "Incorrect"
-            end
-    end
-        rescue 
-        puts "rescued"    
-        end
-    end
-end
 
-quizgame()
 
 @bot.run
 
