@@ -1,73 +1,114 @@
 require 'launchy'
 require 'discordrb'
 require 'dotenv/load'
-
-@bot = Discordrb::Bot.new token: ENV['TOKEN']
-
-# def loginscreen
-#     puts "         __    ____        __ "
-#     puts "   _____/ /_  / __ )____  / /_"
-#     puts "  / ___/ __ |/ __  / __ |/ __/"
-#     puts " / /  / /_/ / /_/ / /_/ / /_  "
-#     puts "/_/  /_.___/_____/|____/|__/  "
-#     puts
-#     puts
-#     puts 
-#     puts "1. Log In"
-#     puts "2. Create an Account"
-# end
+require 'down'
+require './lib/flags.rb'
+require './lib/cat.rb'
+require './lib/level.rb'
+require './lib/logger.rb'
 
 
-# choice = gets.chomp
-#     if choice == "1"
-#         puts "Please enter the password:"
-#         password = gets.chomp.to_s
 
-#     elsif choice == "2"
-#         puts "Welcome to rbBot!"
-#         puts "We will help you create an account and set-up the bot."
-#         puts "First you have to invite the bot to your Discord server."
-#         puts "Press enter to continue.."
-#         gets
-#         Launchy.open('https://discord.com/oauth2/authorize?client_id=943775484746035250&permissions=0&scope=bot%20applications.commands')
-#         puts "After you have added the bot, please type '!authenticate' in any channel, to finish the set-up in Discord."
-# end
-
-@questions = ["https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flag_of_Estonia.svg/255px-Flag_of_Estonia.svg.png", "Vatican", "Germany"]
-@answers = ["Estonia", "Vatican", "Germany"]
-
-def geoquiz
-    @bot.message(with_text: '!flags') do |event|
-    questionnum = rand(0..0)
-    event.channel.send_embed do |embed|
-        embed.title = 'Guess the flag'
-        embed.image = Discordrb::Webhooks::EmbedImage.new(url: @questions[questionnum])
-
-        event.user.await(:guess, with_text: @answers[questionnum]) do |guess_event|
-            guess = guess_event.message.content.to_s
-            if guess == @answers[questionnum]
-                guess_event.respond "#{event.author.mention} Well done! **#{@answers[questionnum]}** is correct!"
-                quizloggies = event.author.username
-                File.open("quizloggies.txt", "a") do |f|
-                f << "#{quizloggies}\n"
-                break
-                    end 
-                end
-            end
+def login
+    puts "\e[H\e[2J"
+    puts "Welcome back to rbBot!"
+    print "Please put in your key to start the bot: "
+    
+    key = gets.chomp
+        text = File.read('key.txt')
+        if text == key    
+            puts "\e[H\e[2J"
+            puts "Welcome back!"     
+        else 
+            puts "Invalid password."
+            exit
         end       
+end
+
+def verification
+    puts "\e[H\e[2J"
+    if(File.exist?('key.txt'))
+        puts "Logged user detected! Welcome back."
+        login()
+
+    else
+
+puts "\e[H\e[2J"
+puts "Key not detected. Welcome to rbBot"
+@bot.message(with_text: '!authenticate') do |event|
+    event.message.delete
+    key = rand(1001..9999)
+    event.author.pm "||#{key}||"
+    File.open("key.txt", "a+") do |f|
+    f << "#{key}"
+    puts "You have successfully generated your key. Welcome to rbBot. Please click enter to log-in!"
+    gets
+    login()
+        end  
+    end
     end
 end
 
-@bot.message(with_text: '!level') do |event|
-    level = event.author.username
-    f = File.open("quizloggies.txt", "r")
-    f.each { |line|
-    puts line.count(level)
-    }
-    
-    
-    #event.respond "**#{event.author.mention}** has: ``#{lines.count(level)}🏆``"
+    puts "\e[H\e[2J"
+    puts "         __    ____        __ "
+    puts "   _____/ /_  / __ )____  / /_"
+    puts "  / ___/ __ |/ __  / __ |/ __/"
+    puts " / /  / /_/ / /_/ / /_/ / /_  "
+    puts "/_/  /_.___/_____/|____/|__/  "
+    puts
+    puts
+    puts 
+    puts "1. Log In"
+    puts "2. Create an Account"
+
+choice = gets.chomp
+
+    if choice == "1"
+        login()
+
+    elsif choice == "2"
+        puts "Welcome to rbBot!"
+        puts "We will help you create an account and set-up the bot."
+        puts "First you will need to create a bot user, and then get the client ID, also, save the token while you are there."
+        puts "Press enter to continue.."
+        gets
+        Launchy.open('https://discord.com/developers/applications')
+        puts "After you have made a bot user, and saved the client ID, and token, click enter to continue.."
+        gets
+        puts "\e[H\e[2J"
+        puts "Please put in your bots client ID."
+        clientid = gets.chomp
+        puts "Please put in your bots token."
+        token = gets.chomp
+            File.open(".env", "w+") { |f|
+            f << "TOKEN=#{token}"
+            }
+        puts "Now that is complete, all we need to do is invite the bot to your server, and you are done! Click enter to continue.."
+        gets
+        puts "\e[H\e[2J"
+        Launchy.open("https://discord.com/oauth2/authorize?client_id=#{clientid}&permissions=0&scope=bot%20")
+        puts "Invite the bot to any server then click enter to continue.."
+        gets
+        puts "Now the final step. Lets get your password set-up so you can start using the bot!"
+        puts "Press enter to complete the set-up.."
+        gets 
+        verification()
+    else
+        puts "invalid input"
 end
 
-geoquiz()
+
+
+
+
+
+
+    
+
+
+
+
+
+
+@bot = Discordrb::Bot.new token: ENV['TOKEN']
 @bot.run

@@ -65,11 +65,7 @@ end
 
 end
 
-@bot.message(with_text: '!winners') do |event|
-    
-    winners = event.author.username
-    event.respond "#{event.author.username} has won #{log.count(winners)} times!"
-end
+
 
 @questions = ["What is the capital city of Australia?", "What is 2 + 2?", "What flag is this?"]
 @answers = ["ACT", "4", "Estonia"]
