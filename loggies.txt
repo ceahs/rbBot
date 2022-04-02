@@ -1,17 +1,3 @@
-MESSAGE: !cat, AUTHOR: #<Discordrb::User:0x000000011167b2d8>
-MESSAGE: !caty, AUTHOR: #<Discordrb::User:0x000000010fc7f258>
-MESSAGE: !cat, AUTHOR: #<Discordrb::User:0x000000010fc7f258>
-MESSAGE: !flags, AUTHOR: #<Discordrb::User:0x00000001104af770>
-MESSAGE: USA, AUTHOR: #<Discordrb::User:0x00000001104af770>
-MESSAGE: United States of America, AUTHOR: #<Discordrb::User:0x00000001104af770>
-MESSAGE: !level, AUTHOR: #<Discordrb::User:0x00000001104af770>
-MESSAGE: !cat, AUTHOR: #<Discordrb::User:0x000000010eae7bd0>
-MESSAGE: !cat, AUTHOR: #<Discordrb::User:0x00000001071ff5d8>
-MESSAGE: !cat, AUTHOR: #<Discordrb::User:0x00000001114575b0>
-MESSAGE: Cat, AUTHOR: #<Discordrb::User:0x00000001088a7010>
-MESSAGE: !cat, AUTHOR: #<Discordrb::User:0x00000001088a7010>
-MESSAGE: !cat, AUTHOR: #<Discordrb::User:0x000000010a444110>
-MESSAGE: !cat, AUTHOR: #<Discordrb::User:0x000000010f9ebb40>
 MESSAGE: !help, AUTHOR: ceah
 MESSAGE: !help, AUTHOR: ceah
 MESSAGE: !help, AUTHOR: ceah
