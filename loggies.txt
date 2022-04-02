@@ -31,3 +31,8 @@ MESSAGE: !execute, AUTHOR: ceah
 MESSAGE: !terminalmode, AUTHOR: ceah
 MESSAGE: !executre, AUTHOR: ceah
 MESSAGE: !execute, AUTHOR: ceah
+MESSAGE: !terminalmode, AUTHOR: ceah
+MESSAGE: !execute, AUTHOR: ceah
+MESSAGE: !cat, AUTHOR: ceah
+MESSAGE: !terminalmode, AUTHOR: ceah
+MESSAGE: !execute, AUTHOR: ceah
