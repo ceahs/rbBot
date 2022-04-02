@@ -122,7 +122,6 @@ end
 
 @bot = Discordrb::Bot.new token: ENV['TOKEN']
 
-
 @bot.message(with_text: '!cat') do |event|
     event.channel.send_embed do |embed|
         embed.title = 'Heres a cat! 🐈'
@@ -163,12 +162,15 @@ end
 
 @bot.message do |event|
     msg = event.message
-    auth = event.author
+    auth = event.author.username
         File.open("loggies.txt", "a") do |f|
         f << "MESSAGE: #{msg}, AUTHOR: #{auth}\n"
     end 
 end
 
 
+@bot.message(with_text: '!help') do |event|
+    
+    
 
 @bot.run
