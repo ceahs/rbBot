@@ -29,18 +29,9 @@ def verification
     else
         puts "\e[H\e[2J"
         puts "Key not detected. Welcome to rbBot"
-        @bot.message(with_text: '!authenticate') do |event|
-            event.message.delete
-            key = rand(1001..9999)
-            event.author.pm "||#{key}||"
-                File.open("key.txt", "w") do |f|
-                f << "#{key}"
-                    puts "You have successfully generated your key. Welcome to rbBot. Please click enter to log-in!"
-                    gets
-                    login()
-            end  
-        end
-    end 
+        puts "Please type the message '!authenticate' in any channel in a server that rbBot is in."
+        @bot.run
+    end  
 end
 
 
@@ -56,6 +47,7 @@ def terminalmode
     puts "1. Download the message log"
     puts "2. Download the geography winner log"
     puts "3. Send an image/message remotely"
+    puts "4. Stop rbBot"
     options = gets.chomp
     case options
     when "1"
@@ -77,6 +69,8 @@ def terminalmode
     end 
 end
 
+@bot = Discordrb::Bot.new token: ENV['TOKEN']
+
 
     puts "\e[H\e[2J"
     puts Rainbow("         __    ____        __ ").red
@@ -89,7 +83,7 @@ end
     puts 
     puts "1. Log In"
     puts "2. Create an Account"
-choice = gets.chomp
+    choice = gets.chomp
 
     if choice == "1"
         login()
@@ -97,7 +91,8 @@ choice = gets.chomp
     elsif choice == "2"
         puts "Welcome to rbBot!"
         puts "We will help you create an account and set-up the bot."
-        puts "First you will need to create a bot user, and then get the client ID, also, save the token while you are there."
+        puts "First you will need to create a bot user, and then get the Client ID (Might show as Application ID), also, save the token while you are there."
+        puts "The token will appear in the 'bot' side menu, it wont be on the same page as the Client ID"
         puts "Press enter to continue.."
         gets
             Launchy.open('https://discord.com/developers/applications')
@@ -125,10 +120,12 @@ choice = gets.chomp
         puts "invalid input"
 end
 
+
+
 puts "\e[H\e[2J"
 puts Rainbow("rbBot initialised. Enjoy!").red
 
-@bot = Discordrb::Bot.new token: ENV['TOKEN']
+
 
 @bot.message(with_text: '!cat') do |event|
     event.channel.send_embed do |embed|
@@ -141,7 +138,7 @@ end
 @questions = ["https://countryflagsapi.com/png/ee", "https://countryflagsapi.com/png/us", "https://countryflagsapi.com/png/de", "https://countryflagsapi.com/png/ae", "https://countryflagsapi.com/png/ad", "https://countryflagsapi.com/png/ch", "https://countryflagsapi.com/png/co", "https://countryflagsapi.com/png/dk", "https://countryflagsapi.com/png/gb-wls", "https://countryflagsapi.com/png/gr", "https://countryflagsapi.com/png/hn", "https://countryflagsapi.com/png/ie", "https://countryflagsapi.com/png/il", "https://countryflagsapi.com/png/iq"]
 @answers = ["Estonia", "United States of America", "Germany", "United Arab Emirites", "Andorra", "Switzerland", "Colombia", "Denmark", "Wales", "Greece", "Honduras", "Ireland", "Israel", "Iraq"]
 @bot.message(with_text: '!flags') do |event|
-    questionnum = rand(0..3)
+    questionnum = rand(0..13)
     event.channel.send_embed do |embed|
         embed.title = 'Guess the flag'
         embed.image = Discordrb::Webhooks::EmbedImage.new(url: @questions[questionnum])
@@ -188,5 +185,19 @@ end
     event.message.delete
     terminalmode()
 end
+
+@bot.message(with_text: '!authenticate') do |event|
+    event.message.delete
+    key = rand(1001..9999)
+        event.author.pm "||#{key}||"
+            File.open("key.txt", "w") do |f|
+            f << "#{key}"
+                puts "\e[H\e[2J"
+                puts "You have successfully generated your key. Welcome to rbBot. Please click enter to log-in!"
+                gets
+                login()
+    end
+end
+
 
 @bot.run
