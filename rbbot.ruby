@@ -138,8 +138,8 @@ puts Rainbow("rbBot initialised. Enjoy!").red
 end
 
 
-@questions = ["https://countryflagsapi.com/png/ee", "https://countryflagsapi.com/png/us", "https://countryflagsapi.com/png/de", "https://countryflagsapi.com/png/ae"]
-@answers = ["Estonia", "United States of America", "Germany", "United Arab Emirites"]
+@questions = ["https://countryflagsapi.com/png/ee", "https://countryflagsapi.com/png/us", "https://countryflagsapi.com/png/de", "https://countryflagsapi.com/png/ae", "https://countryflagsapi.com/png/ad", "https://countryflagsapi.com/png/ch", "https://countryflagsapi.com/png/co", "https://countryflagsapi.com/png/dk", "https://countryflagsapi.com/png/gb-wls", "https://countryflagsapi.com/png/gr", "https://countryflagsapi.com/png/hn", "https://countryflagsapi.com/png/ie", "https://countryflagsapi.com/png/il", "https://countryflagsapi.com/png/iq"]
+@answers = ["Estonia", "United States of America", "Germany", "United Arab Emirites", "Andorra", "Switzerland", "Colombia", "Denmark", "Wales", "Greece", "Honduras", "Ireland", "Israel", "Iraq"]
 @bot.message(with_text: '!flags') do |event|
     questionnum = rand(0..3)
     event.channel.send_embed do |embed|
