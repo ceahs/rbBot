@@ -7,3 +7,4 @@ MESSAGE: !level, AUTHOR: ceah
 MESSAGE: !terminalmode, AUTHOR: ceah
 MESSAGE: !execute, AUTHOR: ceah
 MESSAGE: !terminalmode, AUTHOR: ceah
+MESSAGE: !help, AUTHOR: ceah
