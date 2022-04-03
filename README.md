@@ -1,6 +1,7 @@
-![rbBot Promotional Omage](rbbot.png)
+![rbBot Promotional Image](rbbot.png)
 <br>
-[Trello](https://duckduckgo.com)
+[Trello ](https://trello.com/b/aZOuF2f5/rbbot)
+[ GitHub] (https://github.com/ceahs/rbBot)
 <br>
 <br>
 <br>
@@ -101,3 +102,10 @@ Now as most of us are aware, there is a thousand and a million other Discord bot
 
   * **Message logging**
   <br>All messages in the server rbBot is in, are collected into a file, that can be downloaded in the terminal features.
+
+<br>
+<br>
+<br>
+
+**Want to use some of my commands, and improve them?**
+<br> Simply copy and paste them to your projects. They are all separate like modules, you will be able to put them into your own project with ease.
