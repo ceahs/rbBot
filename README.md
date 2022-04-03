@@ -1,7 +1,7 @@
 ![rbBot Promotional Image](rbbot.png)
 <br>
 [Trello ](https://trello.com/b/aZOuF2f5/rbbot)
-[ GitHub] (https://github.com/ceahs/rbBot)
+[GitHub] (https://github.com/ceahs/rbBot)
 <br>
 <br>
 <br>
