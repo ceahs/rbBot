@@ -17,6 +17,11 @@
 <br>
 <br>
 
+*If you enter Client-ID or Token wrong from your Discord Developers page, please restart the register function, if you try to sign in, it will not work. Perhaps copying and pasting the wrong Token/ClientID is causing your bot to not start. If you are having password issues, there is a section below on how to fix that. Please note you will not need a 'Client Secrect' anywhere in this program, so ignore that incase you think you might need it. Thank you.*
+
+<br>
+<br>
+
 **rbBot - A Discord Command Line Solution**
 <br>
 This project is rbBot. rbBot is build on DiscordRB. It is an unpopular library for Discord bot developers, for certain reasons like scalability, but my bot solves this issue by each user needing to create  their own bot user before they can run the bot. Each persons terminal will only work for their own bot, so there will be no risk of the bot being used by too many users
@@ -49,6 +54,10 @@ Now as most of us are aware, there is a thousand and a million other Discord bot
 
 **Features and Functions**
 <br>
+
+* **!help**
+  <br>Sends all the commands that are executable from Discord.
+  <br>
 
 * **!flags**
   <br>A fun multi-player geography game! First to say the flag wins.

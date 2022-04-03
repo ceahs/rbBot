@@ -100,21 +100,21 @@ choice = gets.chomp
         puts "First you will need to create a bot user, and then get the client ID, also, save the token while you are there."
         puts "Press enter to continue.."
         gets
-        Launchy.open('https://discord.com/developers/applications')
+            Launchy.open('https://discord.com/developers/applications')
         puts "After you have made a bot user, and saved the client ID, and token, click enter to continue.."
         gets
         puts "\e[H\e[2J"
         puts "Please put in your bots client ID."
-        clientid = gets.chomp
+            clientid = gets.chomp
         puts "Please put in your bots token."
-        token = gets.chomp
-            File.open(".env", "w+") { |f|
-            f << "TOKEN=#{token}"
-            }
+            token = gets.chomp
+                File.open(".env", "w+") { |f|
+                f << "TOKEN=#{token}"
+                }
         puts "Now that is complete, all we need to do is invite the bot to your server, and you are done! Click enter to continue.."
         gets
         puts "\e[H\e[2J"
-        Launchy.open("https://discord.com/oauth2/authorize?client_id=#{clientid}&permissions=0&scope=bot%20")
+            Launchy.open("https://discord.com/oauth2/authorize?client_id=#{clientid}&permissions=0&scope=bot%20")
         puts "Invite the bot to any server then click enter to continue.."
         gets
         puts "Now the final step. Lets get your password set-up so you can start using the bot!"

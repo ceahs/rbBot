@@ -1,1 +1,9 @@
-
+MESSAGE: hello logs, AUTHOR: ceah
+MESSAGE: thank god it works., AUTHOR: ceah
+MESSAGE: !cat, AUTHOR: ceah
+MESSAGE: !flags, AUTHOR: ceah
+MESSAGE: Germany, AUTHOR: ceah
+MESSAGE: !level, AUTHOR: ceah
+MESSAGE: !terminalmode, AUTHOR: ceah
+MESSAGE: !execute, AUTHOR: ceah
+MESSAGE: !terminalmode, AUTHOR: ceah
