@@ -10,3 +10,8 @@ MESSAGE: !level, AUTHOR: ceah
 MESSAGE: !terminalmode, AUTHOR: ceah
 MESSAGE: !execute, AUTHOR: ceah
 MESSAGE: !cat, AUTHOR: ceah
+MESSAGE: !authenticate, AUTHOR: ceah
+MESSAGE: !authenticate, AUTHOR: ceah
+MESSAGE: !terminalmode, AUTHOR: ceah
+MESSAGE: !execute, AUTHOR: ceah
+MESSAGE: !cat, AUTHOR: ceah

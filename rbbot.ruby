@@ -43,9 +43,9 @@ end
             File.open("key.txt", "w") do |f|
             f << "#{key}"
                 puts "\e[H\e[2J"
-                puts "You have successfully generated your key. Welcome to rbBot. Please click enter to log-in!"
-                gets
-                login()
+                puts "You have successfully generated your key. The bot has to restart to apply the key. Please run the bot again!"
+                exit
+
     end
 end
 
@@ -94,7 +94,6 @@ def terminalmode
     puts "1. Download the message log"
     puts "2. Download the geography winner log"
     puts "3. Send an image/message remotely"
-    puts "4. Stop rbBot"
     options = gets.chomp
     case options
     when "1"
@@ -149,8 +148,15 @@ end
         puts "Please put in your bots token."
             token = gets.chomp
                 File.open(".env", "w+") { |f|
-                f << "TOKEN=#{token}"
-                }
+                    f << "TOKEN=#{token}"
+                        }
+            if token.empty?
+                File.open(".env", "w+") { |f|
+                    f << "TOKEN=EMPTY"
+                        }
+                    puts "Token empty please retry."
+                    exit
+                end
         puts "Now that is complete, all we need to do is invite the bot to your server, and you are done! Click enter to continue.."
         gets
         puts "\e[H\e[2J"
