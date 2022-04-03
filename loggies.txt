@@ -1,22 +1,12 @@
-MESSAGE: hello logs, AUTHOR: ceah
-MESSAGE: thank god it works., AUTHOR: ceah
+MESSAGE: !authenticate, AUTHOR: ceah
 MESSAGE: !cat, AUTHOR: ceah
+MESSAGE: !cat, AUTHOR: ceah
+MESSAGE: !cat, AUTHOR: ceah
+MESSAGE: !help, AUTHOR: ceah
+MESSAGE: !level, AUTHOR: ceah
 MESSAGE: !flags, AUTHOR: ceah
-MESSAGE: Germany, AUTHOR: ceah
+MESSAGE: Switzerland, AUTHOR: ceah
 MESSAGE: !level, AUTHOR: ceah
 MESSAGE: !terminalmode, AUTHOR: ceah
 MESSAGE: !execute, AUTHOR: ceah
-MESSAGE: !terminalmode, AUTHOR: ceah
-MESSAGE: !help, AUTHOR: ceah
-MESSAGE: !flags, AUTHOR: ceah
-MESSAGE: United States of America, AUTHOR: ceah
-MESSAGE: !flags, AUTHOR: ceah
-MESSAGE: !flags, AUTHOR: ceah
-MESSAGE: Israel, AUTHOR: ceah
-MESSAGE: !flags, AUTHOR: ceah
-MESSAGE: Ireland, AUTHOR: ceah
-MESSAGE: !level, AUTHOR: ceah
-MESSAGE: !terminalmode, AUTHOR: ceah
-MESSAGE: !authenticate, AUTHOR: ceah
-MESSAGE: !authenticate, AUTHOR: ceah
-MESSAGE: !authenticate, AUTHOR: ceah
+MESSAGE: !cat, AUTHOR: ceah

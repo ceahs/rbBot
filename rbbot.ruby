@@ -5,6 +5,51 @@ require 'rubygems'
 require 'bundler'
 require 'rainbow'
 
+@bot = Discordrb::Bot.new token: ENV['TOKEN']
+
+@bot.message(with_text: '!level') do |event|
+    level = event.author.username
+    lines = IO.readlines("quizloggies.txt", chomp: true)
+        event.respond "**#{event.author.mention}** has: ``#{lines.count(level)}🏆``"
+end
+
+
+@bot.message do |event|
+    msg = event.message
+    auth = event.author.username
+        File.open("loggies.txt", "a") do |f|
+        f << "MESSAGE: #{msg}, AUTHOR: #{auth}\n"
+    end 
+end
+
+
+@bot.message(with_text: '!help') do |event|
+    event.channel.send_embed do |embed|
+        embed.title = 'Here is some help!'
+        embed.description = "**!flags** \n Generate a random flag! Play VS your friends! \n\n **!level** \n Check how many flag wins you have. \n\n **!cat** \n Get a picture of a cat on-demand. \n\n\n **ADMIN ONLY:** \n **!terminalmode** \n View the bots terminal options."
+    end
+end
+    
+
+@bot.message(with_text: '!terminalmode') do |event|
+    event.message.delete
+    terminalmode()
+end
+
+@bot.message(with_text: '!authenticate') do |event|
+    event.message.delete
+    key = rand(1001..9999)
+        event.author.pm "||#{key}||"
+            File.open("key.txt", "w") do |f|
+            f << "#{key}"
+                puts "\e[H\e[2J"
+                puts "You have successfully generated your key. Welcome to rbBot. Please click enter to log-in!"
+                gets
+                login()
+    end
+end
+
+
 def login
     puts "\e[H\e[2J"
     puts "Welcome back to rbBot!"
@@ -14,7 +59,8 @@ def login
         text = File.read('key.txt')
         if text == key    
             puts "\e[H\e[2J"
-            puts "Welcome back!"     
+            puts "Welcome back!"   
+            return  
         else 
             puts "Invalid password."
             exit  
@@ -28,9 +74,10 @@ def verification
         login()
     else
         puts "\e[H\e[2J"
-        puts "Key not detected. Welcome to rbBot"
+        puts "Key not detected. Welcome to rbBot!"
         puts "Please type the message '!authenticate' in any channel in a server that rbBot is in."
         @bot.run
+        return
     end  
 end
 
@@ -69,9 +116,6 @@ def terminalmode
     end 
 end
 
-@bot = Discordrb::Bot.new token: ENV['TOKEN']
-
-
     puts "\e[H\e[2J"
     puts Rainbow("         __    ____        __ ").red
     puts Rainbow("   _____/ /_  / __ )____  / /_").red
@@ -89,6 +133,7 @@ end
         login()
 
     elsif choice == "2"
+        puts "\e[H\e[2J"
         puts "Welcome to rbBot!"
         puts "We will help you create an account and set-up the bot."
         puts "First you will need to create a bot user, and then get the Client ID (Might show as Application ID), also, save the token while you are there."
@@ -109,7 +154,7 @@ end
         puts "Now that is complete, all we need to do is invite the bot to your server, and you are done! Click enter to continue.."
         gets
         puts "\e[H\e[2J"
-            Launchy.open("https://discord.com/oauth2/authorize?client_id=#{clientid}&permissions=0&scope=bot%20")
+            Launchy.open("https://discord.com/oauth2/authorize?client_id=#{clientid}&scope=bot&permissions=8")
         puts "Invite the bot to any server then click enter to continue.."
         gets
         puts "Now the final step. Lets get your password set-up so you can start using the bot!"
@@ -155,49 +200,5 @@ end
         end
     end       
 end
-
-
-@bot.message(with_text: '!level') do |event|
-    level = event.author.username
-    lines = IO.readlines("quizloggies.txt", chomp: true)
-        event.respond "**#{event.author.mention}** has: ``#{lines.count(level)}🏆``"
-end
-
-
-@bot.message do |event|
-    msg = event.message
-    auth = event.author.username
-        File.open("loggies.txt", "a") do |f|
-        f << "MESSAGE: #{msg}, AUTHOR: #{auth}\n"
-    end 
-end
-
-
-@bot.message(with_text: '!help') do |event|
-    event.channel.send_embed do |embed|
-        embed.title = 'Here is some help!'
-        embed.description = "**!flags** \n Generate a random flag! Play VS your friends! \n\n **!level** \n Check how many flag wins you have. \n\n **!cat** \n Get a picture of a cat on-demand. \n\n\n **ADMIN ONLY:** \n **!terminalmode** \n View the bots terminal options."
-    end
-end
-    
-
-@bot.message(with_text: '!terminalmode') do |event|
-    event.message.delete
-    terminalmode()
-end
-
-@bot.message(with_text: '!authenticate') do |event|
-    event.message.delete
-    key = rand(1001..9999)
-        event.author.pm "||#{key}||"
-            File.open("key.txt", "w") do |f|
-            f << "#{key}"
-                puts "\e[H\e[2J"
-                puts "You have successfully generated your key. Welcome to rbBot. Please click enter to log-in!"
-                gets
-                login()
-    end
-end
-
 
 @bot.run
