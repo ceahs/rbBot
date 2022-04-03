@@ -1,14 +1,9 @@
 require 'launchy'
 require 'discordrb'
 require 'dotenv/load'
-require 'down'
-
-passwordchange = ARGV
-    Array.new(passwordchange)
-    File.open("key.txt", "w") do |f|
-    f << "#{passwordchange[0]}"
-    end
-
+require 'rubygems'
+require 'bundler'
+require 'rainbow'
 
 def login
     puts "\e[H\e[2J"
@@ -50,11 +45,11 @@ end
 
 
 def terminalmode
-    puts "         __    ____        __ "
-    puts "   _____/ /_  / __ )____  / /_"
-    puts "  / ___/ __ |/ __  / __ |/ __/"
-    puts " / /  / /_/ / /_/ / /_/ / /_  "
-    puts "/_/  /_.___/_____/|____/|__/  "
+    puts Rainbow("         __    ____        __ ").red
+    puts Rainbow("   _____/ /_  / __ )____  / /_").red
+    puts Rainbow("  / ___/ __ |/ __  / __ |/ __/").red
+    puts Rainbow(" / /  / /_/ / /_/ / /_/ / /_  ").red
+    puts Rainbow("/_/  /_.___/_____/|____/|__/  ").red
     puts
     puts
     puts
@@ -84,11 +79,11 @@ end
 
 
     puts "\e[H\e[2J"
-    puts "         __    ____        __ "
-    puts "   _____/ /_  / __ )____  / /_"
-    puts "  / ___/ __ |/ __  / __ |/ __/"
-    puts " / /  / /_/ / /_/ / /_/ / /_  "
-    puts "/_/  /_.___/_____/|____/|__/  "
+    puts Rainbow("         __    ____        __ ").red
+    puts Rainbow("   _____/ /_  / __ )____  / /_").red
+    puts Rainbow("  / ___/ __ |/ __  / __ |/ __/").red
+    puts Rainbow(" / /  / /_/ / /_/ / /_/ / /_  ").red
+    puts Rainbow("/_/  /_.___/_____/|____/|__/  ").red
     puts
     puts
     puts 
@@ -131,7 +126,7 @@ choice = gets.chomp
 end
 
 puts "\e[H\e[2J"
-puts "rbBot initialised. Enjoy!"
+puts Rainbow("rbBot initialised. Enjoy!").red
 
 @bot = Discordrb::Bot.new token: ENV['TOKEN']
 

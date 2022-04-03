@@ -1,6 +1,25 @@
+![rbBot Promotional Omage](rbbot.png)
+<br>
+[Trello](https://duckduckgo.com)
+<br>
+<br>
+<br>
+<br>
+**Software Requirements & How to Install**
+<br>
+* **Windows PC or Mac with Ruby installed**
+<br> Ruby install guide: https://www.ruby-lang.org/en/documentation/installation/
+<br>
+<br>
+* **How to run the code:**
+<br> Use ``bundle install`` when in the 'discordrb' folder to install all the Ruby dependencies required to run the program. After that run ``ruby rbbot.ruby`` to launch the bot and continue to setup.
+<br>
+<br>
+<br>
+
 **rbBot - A Discord Command Line Solution**
 <br>
-This project is rbBot. rbBot is build on DiscordRB. It is an unpopular library for Discord bot developers, for certain reasons like scalability, but my bot solves this issue by each user needing to create  their own bot user before they can run the bot. Each persons terminal will only work for their own bot, so there will be no risk of the bot being used by too many users/
+This project is rbBot. rbBot is build on DiscordRB. It is an unpopular library for Discord bot developers, for certain reasons like scalability, but my bot solves this issue by each user needing to create  their own bot user before they can run the bot. Each persons terminal will only work for their own bot, so there will be no risk of the bot being used by too many users
 
 <br>
 <br>
@@ -16,7 +35,7 @@ Once you have set up your bot, your token and password are logged into the files
 
 **Help!! I forgot my password!**
 <br>
-Incase you forget your password, maybe you lost access to your main Discord account, or you closed your direct message, and the bot could not send you your password, you can use an argument to change the password to anything you want! Simply use the command 'ruby rbbot.rb NEW_PASSWORD_HERE' when running the bot, and the password will be overwritten so you can continue using the bot.
+Incase you forget your password, maybe you lost access to your main Discord account, or you closed your direct message, and the bot could not send you your password, you can use an argument to change the password to anything you want! Simply use the command ``ruby reset.ruby NEW_PASSWORD_HERE`` when running the bot, and the password will be overwritten so you can continue using the bot.
 
 <br>
 <br>
